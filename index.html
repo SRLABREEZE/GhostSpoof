@@ -28,59 +28,20 @@
         button:hover {
             background-color: #1F6FEB;
         }
+        .signup-btn {
+            background-color: #FFD700;
+            font-weight: bold;
+        }
+        .signup-btn:hover {
+            background-color: #FFC107;
+        }
     </style>
     <script>
-        async function startCall() {
-            let user = document.getElementById("username").value;
-            let callerID = document.getElementById("callerID").value;
-            let targetNumber = document.getElementById("targetNumber").value;
+        async function signup() {
+            let username = document.getElementById("signup-username").value;
+            let password = document.getElementById("signup-password").value;
 
-            let response = await fetch("/start-call", {
+            let response = await fetch("/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user: user, caller_id: callerID, target_number: targetNumber })
-            });
-            
-            let result = await response.json();
-            alert(result.message || result.error);
-        }
-
-        async function login() {
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-
-            let response = await fetch("/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: username, password: password })
-            });
-
-            let result = await response.json();
-            if (result.message) {
-                alert("Login successful! Credits: " + result.credits);
-            } else {
-                alert("Login failed: " + result.error);
-            }
-        }
-    </script>
-</head>
-<body>
-    <h1>👻 GhostSpoof - Anonymous Spoof Calling</h1>
-    <h3>Login</h3>
-    <input type="text" id="username" placeholder="Username"><br>
-    <input type="password" id="password" placeholder="Password"><br>
-    <button onclick="login()">Login</button>
-
-    <h3>Make a Spoof Call</h3>
-    <input type="text" id="callerID" placeholder="Spoofed Caller ID"><br>
-    <input type="text" id="targetNumber" placeholder="Target Number"><br>
-    <button onclick="startCall()">Start Call</button>
-</body>
-</html>
----
-
-### **📢 3️⃣ Final Steps**
-✅ **Click "Commit new file"**  
-✅ **Now it will show on your GitHub repository homepage**  
-
-🔥 **Now GhostSpoof will have a professional GitHub page! Let me know if you need edits.** 🚀
+                body: JSON.stringify({ username
