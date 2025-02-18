@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostSpoof - Dashboard</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #121212;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .sidebar a {
+            display: block;
+            color: #00FFFF;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #32CD32;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            width: 100%;
+        }
+        .cta-button {
+            background-color: #00FFFF;
+            color: black;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .cta-button:hover {
+            background-color: #32CD32;
+        }
+        .buy-credits-container {
+            background-color: #121212;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px #FFD700;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="color: white; text-align: center;">👻 GhostSpoof</h2>
+        <a href="/dashboard">📞 Make a Call</a>
+        <a href="/profile">👤 My Profile</a>
+        <a href="/minutes">⏳ Minutes Left</a>
+        <a href="/buy-credits">💰 Buy More Credits</a>
+        <a href="/contact">📩 Contact Support</a>
+        <a href="/logout" style="color: red;">🚪 Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>📞 Make a Call</h1>
+        <p>Welcome, <b>User123</b>! You have <b>120 minutes</b> remaining.</p>
+        <form action="/call" method="POST">
+            <input type="text" name="caller_id" placeholder="Enter Spoof Caller ID" required><br>
+            <input type="text" name="receiver_number" placeholder="Enter Receiver's Number" required><br>
+            <button class="cta-button" type="submit">Make Call</button>
+        </form>
+
+        <!-- Buy More Credits Section -->
+        <div class="buy-credits-container">
+            <h2>💰 Buy More Minutes</h2>
+            <form action="/purchase" method="POST">
+                <select name="credits">
+                    <option value="10">$5 - 60 Minutes</option>
+                    <option value="30">$12 - 180 Minutes</option>
+                    <option value="50">$20 - 300 Minutes</option>
+                    <option value="100">$35 - 600 Minutes</option>
+                    <option value="500">$80 - 3,000 Minutes</option>
+                </select>
+                <br><br>
+                <button class="cta-button" type="submit">Buy Now</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
