@@ -9,7 +9,7 @@ users = {
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Welcome to GhostSpoof API!"})
+    return jsonify({"message": "👻 Welcome to GhostSpoof API - Stay Anonymous!"})
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -18,10 +18,10 @@ def signup():
     password = data.get("password")
 
     if username in users:
-        return jsonify({"error": "Username already exists"}), 400
+        return jsonify({"error": "🚫 Username already exists. Try logging in."}), 400
 
     users[username] = {"password": password, "credits": 10}  # New users start with 10 free credits
-    return jsonify({"message": "Signup successful! You have 10 free credits."})
+    return jsonify({"message": "✅ Sign-Up Successful! Enjoy 10 Free Minutes of GhostSpoof."})
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -30,9 +30,9 @@ def login():
     password = data.get("password")
 
     if username not in users or users[username]["password"] != password:
-        return jsonify({"error": "Invalid credentials"}), 401
+        return jsonify({"error": "🚫 Invalid login. Please check your credentials."}), 401
 
-    return jsonify({"message": "Login successful", "credits": users[username]["credits"]})
+    return jsonify({"message": "🔓 Login successful!", "credits": users[username]["credits"]})
 
 @app.route("/start-call", methods=["POST"])
 def start_call():
@@ -42,13 +42,13 @@ def start_call():
     target_number = data.get("target_number")
 
     if username not in users or users[username]["credits"] <= 0:
-        return jsonify({"error": "Insufficient credits"}), 403
+        return jsonify({"error": "❌ Insufficient credits. Please add funds to continue."}), 403
 
     # Deduct credits (Admin has unlimited calls)
     if username != "admin":
         users[username]["credits"] -= 1
 
-    return jsonify({"message": f"Calling {target_number} with spoofed ID {caller_id}!"})
+    return jsonify({"message": f"📞 Calling {target_number} with spoofed ID {caller_id}!"})
 
 if __name__ == "__main__":
     app.run(debug=True)
