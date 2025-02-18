@@ -3,90 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GhostSpoof - Anonymous Spoof Calling</title>
+    <title>GhostSpoof - The Best Spoof Calling Service</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background-color: #000000; /* Dark Background */
-            color: #FFFFFF; /* White Text */
+            background-color: #000000; /* Ghost Theme */
+            color: #FFFFFF;
             font-family: Arial, sans-serif;
             text-align: center;
         }
         h1 {
-            color: #00FFFF; /* Neon Blue */
+            color: #00FFFF; /* Neon Cyan */
         }
-        input, button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #00FFFF; /* Neon Blue */
-            color: #000000; /* Black Text for contrast */
+        .cta-button {
+            background-color: #00FFFF;
+            color: black;
+            padding: 15px 30px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
             font-weight: bold;
             border-radius: 5px;
         }
-        button:hover {
-            background-color: #32CD32; /* Bright Green Hover Effect */
-        }
-        .signup-btn {
+        .cta-button:hover {
             background-color: #32CD32; /* Bright Green */
-            font-weight: bold;
         }
-        .signup-btn:hover {
-            background-color: #00FFFF; /* Neon Blue */
-        }
-        .logo {
-            width: 200px;
-            margin-top: 20px;
+        .chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
         }
     </style>
-    <script>
-        async function signup() {
-            let username = document.getElementById("signup-username").value;
-            let password = document.getElementById("signup-password").value;
-
-            let response = await fetch("/signup", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: username, password: password })
-            });
-
-            let result = await response.json();
-            alert(result.message || result.error);
-        }
-    </script>
 </head>
 <body>
-    <img src="static/ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
-    <h1>👻 GhostSpoof - Anonymous Spoof Calling</h1>
+    <h1>👻 GhostSpoof - Spoof Calls, Done Right!</h1>
+    <p>✔️ More Minutes for Less Money  
+       <br>✔️ Best Value vs SpoofCard & Hushed  
+       <br>✔️ No Contracts, Just Pay-as-You-Go</p>
+    <button class="cta-button" onclick="location.href='/signup'">Get Started Now</button>
 
-    <h3>Sign Up</h3>
-    <input type="text" id="signup-username" placeholder="Enter Email"><br>
-    <input type="password" id="signup-password" placeholder="Enter Password"><br>
-    <button class="signup-btn" onclick="signup()">Sign Up</button>
+    <h2>📊 Pricing Comparison: GhostSpoof vs Competitors</h2>
+    <div class="chart-container">
+        <canvas id="pricingChart"></canvas>
+    </div>
 
-    <h3>📊 Compare Our Prices vs Competitors</h3>
-    <canvas id="pricingChart" width="400" height="200"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('pricingChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['GhostSpoof', 'SpoofCard'],
-                datasets: [{
-                    label: 'Price per 10 Minutes ($)',
-                    data: [5, 9.95], // GhostSpoof price is lower
-                    backgroundColor: ['#00FFFF', '#FF4D4D'],
-                    borderColor: ['#32CD32', '#B22222'],
-                    borderWidth: 1
-                }]
+                labels: ['10 Min Plan', '30 Min Plan', '50 Min Plan', '100 Min Plan', '500 Min Plan'],
+                datasets: [
+                    {
+                        label: 'GhostSpoof 👻',
+                        data: [5, 12, 20, 35, 80],
+                        backgroundColor: '#00FFFF'
+                    },
+                    {
+                        label: 'SpoofCard ❌',
+                        data: [9.95, 24.95, 39.95, 74.95, 149.95],
+                        backgroundColor: '#FF4D4D'
+                    },
+                    {
+                        label: 'Hushed ⚡',
+                        data: [8.99, 22.99, 37.99, 69.99, 139.99],
+                        backgroundColor: '#32CD32'
+                    }
+                ]
             },
             options: {
                 scales: {
-                    y: { beginAtZero: true }
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
         });
