@@ -1,54 +1,75 @@
-from flask import Flask, request, jsonify
+import os
+import stripe
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-# Temporary in-memory storage for users & credits (Replace with a database later)
+# Stripe API Configuration
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")  # Load from environment
+
+# Fake user database (Replace with actual DB later)
 users = {
-    "admin": {"password": "admin123", "credits": float('inf')}  # Admin has unlimited calls
+    "user@example.com": {"password": "password123", "minutes": 120}
 }
 
-@app.route("/")
+CREDIT_PACKAGES = {
+    "10": {"amount": 500, "minutes": 60},
+    "30": {"amount": 1200, "minutes": 180},
+    "50": {"amount": 2000, "minutes": 300},
+    "100": {"amount": 3500, "minutes": 600},
+    "500": {"amount": 8000, "minutes": 3000}
+}
+
+@app.route('/')
 def home():
-    return jsonify({"message": "👻 Welcome to GhostSpoof API - Stay Anonymous!"})
+    return render_template('index.html')
 
-@app.route("/signup", methods=["POST"])
-def signup():
-    data = request.json
-    username = data.get("username")
-    password = data.get("password")
+@app.route('/dashboard', methods=['POST'])
+def dashboard():
+    username = request.form['username']
+    password = request.form['password']
+    if username in users and users[username]["password"] == password:
+        return render_template('dashboard.html', user=username, minutes=users[username]["minutes"])
+    else:
+        return "Invalid login. Try again."
 
-    if username in users:
-        return jsonify({"error": "🚫 Username already exists. Try logging in."}), 400
+@app.route('/buy-credits')
+def buy_credits():
+    return render_template('buy_credits.html')
 
-    users[username] = {"password": password, "credits": 10}  # New users start with 10 free credits
-    return jsonify({"message": "✅ Sign-Up Successful! Enjoy 10 Free Minutes of GhostSpoof."})
+@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    selected_credits = request.form['credits']
+    package = CREDIT_PACKAGES[selected_credits]
 
-@app.route("/login", methods=["POST"])
-def login():
-    data = request.json
-    username = data.get("username")
-    password = data.get("password")
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price_data': {
+                'currency': 'usd',
+                'product_data': {'name': f'{package["minutes"]} Minutes'},
+                'unit_amount': package["amount"],  # Convert to cents
+            },
+            'quantity': 1,
+        }],
+        mode='payment',
+        success_url=url_for('payment_success', _external=True),
+        cancel_url=url_for('dashboard', _external=True)
+    )
 
-    if username not in users or users[username]["password"] != password:
-        return jsonify({"error": "🚫 Invalid login. Please check your credentials."}), 401
+    return redirect(session.url, code=303)
 
-    return jsonify({"message": "🔓 Login successful!", "credits": users[username]["credits"]})
+@app.route('/payment-success')
+def payment_success():
+    # Example: Add 60 minutes (In real DB, update user balance)
+    users["user@example.com"]["minutes"] += 60
+    return redirect(url_for('dashboard'))
 
-@app.route("/start-call", methods=["POST"])
-def start_call():
-    data = request.json
-    username = data.get("username")
-    caller_id = data.get("caller_id")
-    target_number = data.get("target_number")
-
-    if username not in users or users[username]["credits"] <= 0:
-        return jsonify({"error": "❌ Insufficient credits. Please add funds to continue."}), 403
-
-    # Deduct credits (Admin has unlimited calls)
-    if username != "admin":
-        users[username]["credits"] -= 1
-
-    return jsonify({"message": f"📞 Calling {target_number} with spoofed ID {caller_id}!"})
+@app.route('/logout')
+def logout():
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
