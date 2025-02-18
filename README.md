@@ -13,8 +13,10 @@ GhostSpoof is a **spoof calling** web service that allows users to call any numb
 ✅ **Secure & Encrypted** –
 ---
 
-### **📢 3️⃣ Final Steps**
-✅ **Click "Commit new file"**  
-✅ **Now it will show on your GitHub repository homepage**  
 
-🔥 **Now GhostSpoof will have a professional GitHub page! Let me know if you need edits.** 🚀
+
+
+
+
+
+
