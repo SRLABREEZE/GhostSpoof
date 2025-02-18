@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - GhostSpoof</title>
+    <style>
+        body { background-color: black; color: white; text-align: center; font-family: Arial; }
+        .container { background-color: #121212; padding: 20px; width: 300px; margin: auto; border-radius: 10px; }
+        .cta-button { background-color: cyan; padding: 10px; font-size: 16px; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>📩 Contact Support</h1>
+    <div class="container">
+        <h2>Need Help?</h2>
+        <form action="/send-support" method="POST">
+            <input type="text" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Your Message" required></textarea><br>
+            <button class="cta-button" type="submit">Send</button>
+        </form>
+    </div>
+
+</body>
+</html>
