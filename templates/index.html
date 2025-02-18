@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GhostSpoof - Home</title>
+    <title>GhostSpoof - The Best Spoof Caller</title>
     <style>
         body { background-color: black; color: white; text-align: center; font-family: Arial; }
-        .login-container { background-color: #121212; padding: 20px; width: 300px; margin: auto; border-radius: 10px; }
-        input { width: 90%; padding: 10px; margin: 10px; border-radius: 5px; }
         .cta-button { background-color: cyan; padding: 10px; font-size: 16px; border: none; border-radius: 5px; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #121212; color: white; }
+        th, td { padding: 12px; border: 1px solid cyan; text-align: center; }
+        th { background-color: cyan; color: black; }
+        .highlight { background-color: limegreen; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -18,14 +20,55 @@
 
     <button class="cta-button" onclick="location.href='/signup'">Sign Up & Get 15 Free Minutes</button>
 
-    <div class="login-container">
-        <h2>🔑 User Login</h2>
-        <form action="/dashboard" method="POST">
-            <input type="text" name="username" placeholder="Enter Email" required><br>
-            <input type="password" name="password" placeholder="Enter Password" required><br>
-            <button class="cta-button" type="submit">Login</button>
-        </form>
-    </div>
+    <h2>🔥 Why Choose GhostSpoof Over Others?</h2>
+    
+    <!-- Pricing Comparison Table -->
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>GhostSpoof</th>
+            <th>SpoofCard</th>
+            <th>Hushed</th>
+        </tr>
+        <tr>
+            <td>Free Trial Minutes</td>
+            <td class="highlight">✅ 15 Minutes</td>
+            <td>❌ No Free Minutes</td>
+            <td>❌ No Free Minutes</td>
+        </tr>
+        <tr>
+            <td>Cost Per Minute</td>
+            <td class="highlight">💰 $0.08</td>
+            <td>$0.12</td>
+            <td>$0.15</td>
+        </tr>
+        <tr>
+            <td>Custom Caller ID</td>
+            <td class="highlight">✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>❌ No</td>
+        </tr>
+        <tr>
+            <td>Anonymous Calling</td>
+            <td class="highlight">✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+        </tr>
+        <tr>
+            <td>Pay-As-You-Go</td>
+            <td class="highlight">✅ Yes</td>
+            <td>❌ No (Subscription Only)</td>
+            <td>❌ No (Subscription Only)</td>
+        </tr>
+        <tr>
+            <td>Unlimited Call Packages</td>
+            <td class="highlight">✅ Available Soon</td>
+            <td>✅ Yes ($99.95/month)</td>
+            <td>✅ Yes ($49.99/month)</td>
+        </tr>
+    </table>
+
+    <button class="cta-button" onclick="location.href='/buy-credits'">Get Started Now</button>
 
 </body>
 </html>
