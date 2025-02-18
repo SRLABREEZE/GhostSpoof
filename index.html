@@ -6,13 +6,13 @@
     <title>GhostSpoof - Anonymous Spoof Calling</title>
     <style>
         body {
-            background-color: #0D1117;
-            color: white;
+            background-color: #000000; /* Dark Background */
+            color: #FFFFFF; /* White Text */
             font-family: Arial, sans-serif;
             text-align: center;
         }
         h1 {
-            color: #58A6FF;
+            color: #00FFFF; /* Neon Blue */
         }
         input, button {
             margin: 10px;
@@ -20,20 +20,26 @@
             font-size: 16px;
         }
         button {
-            background-color: #58A6FF;
-            color: white;
+            background-color: #00FFFF; /* Neon Blue */
+            color: #000000; /* Black Text for contrast */
             border: none;
             cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
         }
         button:hover {
-            background-color: #1F6FEB;
+            background-color: #32CD32; /* Bright Green Hover Effect */
         }
         .signup-btn {
-            background-color: #FFD700;
+            background-color: #32CD32; /* Bright Green */
             font-weight: bold;
         }
         .signup-btn:hover {
-            background-color: #FFC107;
+            background-color: #00FFFF; /* Neon Blue */
+        }
+        .logo {
+            width: 200px;
+            margin-top: 20px;
         }
     </style>
     <script>
@@ -44,4 +50,46 @@
             let response = await fetch("/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username
+                body: JSON.stringify({ username: username, password: password })
+            });
+
+            let result = await response.json();
+            alert(result.message || result.error);
+        }
+    </script>
+</head>
+<body>
+    <img src="static/ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+    <h1>👻 GhostSpoof - Anonymous Spoof Calling</h1>
+
+    <h3>Sign Up</h3>
+    <input type="text" id="signup-username" placeholder="Enter Email"><br>
+    <input type="password" id="signup-password" placeholder="Enter Password"><br>
+    <button class="signup-btn" onclick="signup()">Sign Up</button>
+
+    <h3>📊 Compare Our Prices vs Competitors</h3>
+    <canvas id="pricingChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('pricingChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['GhostSpoof', 'SpoofCard'],
+                datasets: [{
+                    label: 'Price per 10 Minutes ($)',
+                    data: [5, 9.95], // GhostSpoof price is lower
+                    backgroundColor: ['#00FFFF', '#FF4D4D'],
+                    borderColor: ['#32CD32', '#B22222'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
