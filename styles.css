@@ -1,8 +1,8 @@
-/* General Styling */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000; /* Black Background */
-    color: #FFFFFF; /* White Text */
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White */
     text-align: center;
     margin: 0;
     padding: 0;
@@ -10,29 +10,14 @@ body {
 
 /* Container */
 .container {
-    max-width: 400px;
+    max-width: 450px;
     margin: auto;
     padding: 20px;
 }
 
-/* Header Styling */
+/* Header */
 h1 {
     color: #00FFFF; /* Neon Blue */
-}
-
-h2 {
-    color: #FFFFFF; /* White */
-}
-
-.highlight {
-    font-weight: bold;
-}
-
-/* Tagline */
-.tagline {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -42,7 +27,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin: 5px;
+    margin: 8px;
     transition: 0.3s;
 }
 
@@ -51,139 +36,52 @@ button {
     color: #000000; /* Black */
 }
 
-.learn-btn {
+.buy-btn {
     background-color: #32CD32; /* Bright Green */
     color: #000000; /* Black */
 }
 
-.dashboard-btn {
-    background-color: #00FFFF; /* Neon Blue */
+.call-btn {
+    background-color: #FFFFFF; /* White */
     color: #000000; /* Black */
 }
 
-.buy-tokens-btn {
-    background-color: #32CD32; /* Bright Green */
-    color: #000000; /* Black */
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
 }
 
-.contact-btn {
-    background-color: #00FFFF; /* Neon Blue */
-    color: #000000; /* Black */
-}
-
-.logout-btn {
-    background-color: #FF4500; /* Red (for logout) */
-    color: #FFFFFF;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Login Box */
-.login-box {
-    background-color: rgba(50, 205, 50, 0.2); /* Bright Green Transparency */
+/* Sidebar */
+.sidebar {
+    background-color: rgba(50, 205, 50, 0.2); /* Bright Green Transparent */
+    width: 250px;
     padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+    height: 100vh;
 }
 
-input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #00FFFF; /* Neon Blue Border */
-    border-radius: 5px;
-    background-color: #000000; /* Black */
-    color: #FFFFFF; /* White */
+.sidebar h2 {
+    color: #00FFFF;
 }
 
-input::placeholder {
-    color: #32CD32; /* Bright Green */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-/* Register Link */
-.register-link {
-    margin-top: 10px;
-    font-size: 14px;
+.sidebar ul li {
+    padding: 10px 0;
 }
 
-.register-link a {
-    color: #00FFFF; /* Neon Blue */
+.sidebar ul li a {
+    color: #FFFFFF;
     text-decoration: none;
 }
 
-.register-link a:hover {
+.sidebar ul li a:hover {
     text-decoration: underline;
 }
 
-/* Modal (Sign Up) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-    background-color: #000000; /* Black */
-    color: #FFFFFF; /* White */
-    margin: 15% auto;
+.content {
+    flex-grow: 1;
     padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 350px;
-    text-align: center;
-    border: 2px solid #00FFFF; /* Neon Blue Border */
-}
-
-.close {
-    color: #FFFFFF;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-textarea {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #00FFFF; /* Neon Blue */
-    border-radius: 5px;
-    background-color: #000000; /* Black */
-    color: #FFFFFF; /* White */
-}
-
-/* Tables (Pricing Page) */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #00FFFF; /* Neon Blue */
-}
-
-th {
-    background-color: #32CD32; /* Bright Green */
-    color: #000000; /* Black */
-}
-
-td {
-    background-color: rgba(50, 205, 50, 0.2); /* Transparent Green */
 }
