@@ -3,19 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - GhostSpoof</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>GhostSpoof - Dashboard</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .logo {
+            width: 120px; /* Matches index.html */
+            height: auto;
+            margin: 20px 0;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            color: #000;
+            background-color: #0ff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #111;
+            color: #0ff;
+            padding-top: 20px;
+            text-align: left;
+        }
+        .sidebar a {
+            display: block;
+            color: #0ff;
+            padding: 10px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .sidebar a:hover {
+            background-color: #222;
+        }
+    </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="call.html">📞 Make a Call</a>
+        <a href="buy_credits.html">💰 Buy Credits</a>
+        <a href="contact.html">📩 Contact Support</a>
+        <a href="logout">🚪 Logout</a>
+    </div>
+
     <div class="container">
-        <h1>🎉 Welcome to GhostSpoof, <span id="username"></span>!</h1>
-        <p>Your account is set up, and you're ready to start making spoof calls.</p>
-        <a href="{{ url_for('call_page') }}" class="btn">Start Spoofing Now</a>
-        <a href="{{ url_for('buy_credits') }}" class="btn">Buy More Minutes</a>
-        <a href="{{ url_for('logout') }}" class="btn logout">Logout</a>
+        <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+        <h1>🎉 Welcome, {{ username }}!</h1>
+        <p>Your account is set up. Start making spoof calls now.</p>
+        
+        <a href="call.html" class="btn">Start Spoofing</a>
+        <a href="buy_credits.html" class="btn">Buy More Minutes</a>
     </div>
 </body>
-<script>
-    document.getElementById('username').innerText = localStorage.getItem('username') || 'User';
-</script>
 </html>
