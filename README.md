@@ -23,7 +23,6 @@ GhostSpoof offers the **best prices** compared to competitors like SpoofCard.
 |------------|--------------|-------------|
 | **Price per 10 Minutes** | **$5.00** | **$9.95** |
 | **Free Sign-Up Minutes** | ✅ 10 Free | ❌ No Free Minutes |
-| **Unlimited Admin Calls** | ✅ Yes | ❌ No |
 | **Custom Caller ID** | ✅ Yes | ✅ Yes |
 
 ## 📌 How to Use  
