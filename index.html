@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostSpoof - Anonymous Spoof Calling</title>
+    <style>
+        body {
+            background-color: #0D1117;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #58A6FF;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #58A6FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1F6FEB;
+        }
+    </style>
+    <script>
+        async function startCall() {
+            let user = document.getElementById("username").value;
+            let callerID = document.getElementById("callerID").value;
+            let targetNumber = document.getElementById("targetNumber").value;
+
+            let response = await fetch("/start-call", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user: user, caller_id: callerID, target_number: targetNumber })
+            });
+            
+            let result = await response.json();
+            alert(result.message || result.error);
+        }
+
+        async function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            let response = await fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username: username, password: password })
+            });
+
+            let result = await response.json();
+            if (result.message) {
+                alert("Login successful! Credits: " + result.credits);
+            } else {
+                alert("Login failed: " + result.error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>👻 GhostSpoof - Anonymous Spoof Calling</h1>
+    <h3>Login</h3>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+
+    <h3>Make a Spoof Call</h3>
+    <input type="text" id="callerID" placeholder="Spoofed Caller ID"><br>
+    <input type="text" id="targetNumber" placeholder="Target Number"><br>
+    <button onclick="startCall()">Start Call</button>
+</body>
+</html>
