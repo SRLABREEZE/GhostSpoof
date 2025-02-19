@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GhostSpoof - Sign Up</title>
+    <title>Sign Up - GhostSpoof</title>
+    <link rel="icon" type="image/png" href="ghostspoof_logo.png">
     <style>
         body {
             background-color: #000;
@@ -12,71 +13,57 @@
             text-align: center;
         }
         .logo {
-            width: 120px;
+            width: 150px;
+            max-width: 30%;
             height: auto;
-            margin: 20px 0;
+            margin: 20px auto;
+            display: block;
         }
         .container {
-            margin-top: 30px;
+            width: 80%;
+            margin: 20px auto;
             padding: 20px;
-            background-color: rgba(0, 255, 255, 0.1);
-            display: inline-block;
+            border: 1px solid #0ff;
             border-radius: 10px;
+            background-color: #111;
         }
-        input {
+        .input-field {
             width: 80%;
             padding: 10px;
             margin: 10px;
-            font-size: 16px;
             border: 1px solid #0ff;
             border-radius: 5px;
-            background: #111;
+            font-size: 16px;
+            background-color: #222;
             color: #0ff;
-            text-align: center;
         }
         .btn {
-            display: block;
-            width: 80%;
-            padding: 15px;
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
             font-size: 18px;
             color: #000;
             background-color: #0ff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            margin: 10px auto;
-        }
-        .btn:hover {
-            background-color: #00cccc;
-        }
-        .links {
-            margin-top: 10px;
-        }
-        .links a {
-            color: #0ff;
-            text-decoration: none;
-        }
-        .links a:hover {
-            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+
     <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
-    <h1>Create Your GhostSpoof Account</h1>
-    <p>Sign up and get 15 free spoof calling minutes!</p>
+
+    <h1>Join GhostSpoof & Get 15 Free Minutes</h1>
 
     <div class="container">
         <form action="dashboard.html" method="POST">
-            <input type="text" name="name" placeholder="Enter your name" required><br>
-            <input type="email" name="email" placeholder="Enter your email" required><br>
-            <input type="password" name="password" placeholder="Enter a password" required><br>
-            <input type="password" name="confirm_password" placeholder="Confirm password" required><br>
+            <input type="email" name="email" placeholder="Enter Email" class="input-field" required><br>
+            <input type="password" name="password" placeholder="Create Password" class="input-field" required><br>
             <button type="submit" class="btn">Sign Up</button>
         </form>
-        <div class="links">
-            <a href="login.html">Already have an account? Login</a>
-        </div>
     </div>
+
 </body>
 </html>
