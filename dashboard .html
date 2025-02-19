@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GhostSpoof</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Welcome to GhostSpoof, <span id="username"></span>!</h1>
+        <p>Your account is set up, and you're ready to start making spoof calls.</p>
+        <a href="{{ url_for('call_page') }}" class="btn">Start Spoofing Now</a>
+        <a href="{{ url_for('buy_credits') }}" class="btn">Buy More Minutes</a>
+        <a href="{{ url_for('logout') }}" class="btn logout">Logout</a>
+    </div>
+</body>
+<script>
+    document.getElementById('username').innerText = localStorage.getItem('username') || 'User';
+</script>
+</html>
