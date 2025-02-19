@@ -1,4 +1,5 @@
-# 👻 GhostSpoof - The Ultimate Spoof Calling Service
+# ![GhostSpoof Logo](static/ghostspoof_logo.png)
+GhostSpoof - The Ultimate Spoof Calling Service
 ### 🚀 Spoof Calls & Stay Anonymous
 
 GhostSpoof is a **spoof calling** web service that allows users to call any number with a custom fake caller ID. It is designed for **entertainment, security testing, and anonymous communication.**  
