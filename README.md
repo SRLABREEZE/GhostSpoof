@@ -4,11 +4,6 @@ GhostSpoof - The Ultimate Spoof Calling Service
 
 GhostSpoof is a **spoof calling** web service that allows users to call any number with a custom fake caller ID. It is designed for **entertainment, security testing, and anonymous communication.**  
 
-## 🎨 Brand Colors
-- 🖤 **Background:** Black `#000000`
-- 💙 **Primary:** Neon Blue `#00FFFF`
-- 💚 **Accent:** Bright Green `#32CD32`
-- ⚪ **Text:** White `#FFFFFF`
 
 ## 🔥 Features  
 ✅ **Spoof Caller ID** – Enter any number you want to display  
