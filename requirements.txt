@@ -1,3 +1,5 @@
 flask
 gunicorn
 requests
+
+Fixed merge conflict in requirements.txt
