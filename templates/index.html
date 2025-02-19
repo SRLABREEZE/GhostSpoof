@@ -14,13 +14,30 @@
             ✅ Best Value vs SpoofCard & Hushed<br>
             ✅ No Contracts, Just Pay-as-You-Go
         </p>
-        <button class="signup-btn">Sign Up & Get 15 Free Minutes</button>
+
+        <div class="button-group">
+            <button class="signup-btn" onclick="openSignup()">Sign Up & Get 15 Free Minutes</button>
+            <button class="learn-btn" onclick="window.location.href='pricing.html'">Learn More</button>
+        </div>
 
         <div class="login-box">
             <h2>🔑 User Login</h2>
-            <input type="email" placeholder="Enter Email" id="email">
-            <input type="password" placeholder="Enter Password" id="password">
+            <input type="email" placeholder="Enter Email" id="login-email">
+            <input type="password" placeholder="Enter Password" id="login-password">
             <button class="login-btn" onclick="loginUser()">Login</button>
+            <p class="register-link">Don't have an account? <a href="#" onclick="openSignup()">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignup()">&times;</span>
+            <h2>🔑 Create an Account</h2>
+            <input type="text" placeholder="Full Name" id="signup-name">
+            <input type="email" placeholder="Enter Email" id="signup-email">
+            <input type="password" placeholder="Create Password" id="signup-password">
+            <button class="signup-modal-btn" onclick="registerUser()">Sign Up</button>
         </div>
     </div>
 
