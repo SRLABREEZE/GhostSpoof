@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostSpoof - Login</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .logo {
+            width: 120px; /* Adjusted size */
+            height: auto;
+            margin: 20px 0;
+        }
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 255, 255, 0.1);
+            display: inline-block;
+            border-radius: 10px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #0ff;
+            border-radius: 5px;
+            background: #111;
+            color: #0ff;
+            text-align: center;
+        }
+        .btn {
+            display: block;
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            color: #000;
+            background-color: #0ff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px auto;
+        }
+        .btn:hover {
+            background-color: #00cccc;
+        }
+        .links {
+            margin-top: 10px;
+        }
+        .links a {
+            color: #0ff;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+    <h1>Login to GhostSpoof</h1>
+    <p>Enter your details to access spoof calling services.</p>
+
+    <div class="container">
+        <form action="dashboard.html" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required><br>
+            <input type="password" name="password" placeholder="Enter your password" required><br>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="links">
+            <a href="signup.html">Don't have an account? Sign up</a><br>
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+</body>
+</html>
