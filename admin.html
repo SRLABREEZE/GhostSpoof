@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <script type="module" src="admin-auth.js"></script>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Enter Email">
+    <input type="password" id="adminPassword" placeholder="Enter Password">
+    <button onclick="loginAdmin()">Login</button>
+    <p id="adminStatus"></p>
+
+    <script type="module">
+        import { auth, signInWithEmailAndPassword, db, doc, getDoc } from "./firebase-config.js";
+
+        async function loginAdmin() {
+            const email = document.getElementById("adminEmail").value;
+            const password = document.getElementById("adminPassword").value;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Check if the user is an admin
+                const adminRef = doc(db, "admins", user.uid);
+                const adminSnap = await getDoc(adminRef);
+
+                if (adminSnap.exists()) {
+                    window.location.href = "dashboard.html";  // Redirect to Admin Dashboard
+                } else {
+                    document.getElementById("adminStatus").innerText = "Access Denied!";
+                    signOut(auth);
+                }
+            } catch (error) {
+                document.getElementById("adminStatus").innerText = error.message;
+            }
+        }
+    </script>
+</body>
+</html>
