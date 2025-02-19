@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GhostSpoof - Dashboard</title>
+    <title>GhostSpoof Dashboard</title>
     <style>
         body {
             background-color: #000;
@@ -11,13 +10,10 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
-        .logo {
-            width: 120px; /* Matches index.html */
-            height: auto;
-            margin: 20px 0;
-        }
         .container {
-            margin-top: 30px;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
         }
         .btn {
             display: inline-block;
@@ -30,45 +26,37 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        .sidebar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 200px;
-            height: 100vh;
-            background-color: #111;
-            color: #0ff;
-            padding-top: 20px;
-            text-align: left;
+        .card {
+            background: #111;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #0ff;
         }
-        .sidebar a {
-            display: block;
-            color: #0ff;
-            padding: 10px;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-        .sidebar a:hover {
-            background-color: #222;
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Dashboard</h2>
-        <a href="call.html">📞 Make a Call</a>
-        <a href="buy_credits.html">💰 Buy Credits</a>
-        <a href="contact.html">📩 Contact Support</a>
-        <a href="logout">🚪 Logout</a>
-    </div>
-
+    <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+    <h1>Welcome to Your Dashboard</h1>
     <div class="container">
-        <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
-        <h1>🎉 Welcome, {{ username }}!</h1>
-        <p>Your account is set up. Start making spoof calls now.</p>
-        
-        <a href="call.html" class="btn">Start Spoofing</a>
-        <a href="buy_credits.html" class="btn">Buy More Minutes</a>
+        <div class="card">
+            <h2>Your Balance: <span id="balance">$10.00</span></h2>
+            <a href="buy_credits.html" class="btn">Buy More Credits</a>
+        </div>
+        <div class="card">
+            <h2>Call History</h2>
+            <p>No recent calls</p>
+        </div>
+        <div class="card">
+            <h2>Account Settings</h2>
+            <a href="settings.html" class="btn">Manage Account</a>
+        </div>
+        <a href="call.html" class="btn">Start a Call</a>
     </div>
 </body>
 </html>
