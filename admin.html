@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - GhostSpoof</title>
+    <script type="module" src="firebase-config.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            color: #000;
+            background-color: #0ff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .card {
+            background: #111;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #0ff;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+    <h1>Admin Panel</h1>
+    <div class="container">
+        <div class="card">
+            <h2>Manage Users</h2>
+            <a href="manage-users.html" class="btn">View Users</a>
+        </div>
+        <div class="card">
+            <h2>Transactions</h2>
+            <a href="transactions.html" class="btn">View Transactions</a>
+        </div>
+        <div class="card">
+            <h2>System Logs</h2>
+            <a href="logs.html" class="btn">View Logs</a>
+        </div>
+        <a href="#" class="btn" onclick="logoutAdmin()">Logout</a>
+    </div><script type="module">
+    import { auth, db, checkAdmin } from "./firebase-config.js";
+    import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) {
+            window.location.href = "login.html";
+            return;
+        }
+        await checkAdmin(user); // Ensure user is admin
+    });
+
+    function logoutAdmin() {
+        signOut(auth).then(() => {
+            window.location.href = "login.html";
+        });
+    }
+</script>
+
+</body>
+</html>
