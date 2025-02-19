@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostSpoof - Sign Up</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .logo {
+            width: 120px;
+            height: auto;
+            margin: 20px 0;
+        }
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 255, 255, 0.1);
+            display: inline-block;
+            border-radius: 10px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #0ff;
+            border-radius: 5px;
+            background: #111;
+            color: #0ff;
+            text-align: center;
+        }
+        .btn {
+            display: block;
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            color: #000;
+            background-color: #0ff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px auto;
+        }
+        .btn:hover {
+            background-color: #00cccc;
+        }
+        .links {
+            margin-top: 10px;
+        }
+        .links a {
+            color: #0ff;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
+    <h1>Create Your GhostSpoof Account</h1>
+    <p>Sign up and get 15 free spoof calling minutes!</p>
+
+    <div class="container">
+        <form action="dashboard.html" method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required><br>
+            <input type="email" name="email" placeholder="Enter your email" required><br>
+            <input type="password" name="password" placeholder="Enter a password" required><br>
+            <input type="password" name="confirm_password" placeholder="Confirm password" required><br>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="links">
+            <a href="login.html">Already have an account? Login</a>
+        </div>
+    </div>
+</body>
+</html>
