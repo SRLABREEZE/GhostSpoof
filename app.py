@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
@@ -81,3 +82,19 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+=======
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "GhostSpoof is Live on Render!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
+^O
+^X
+
+X
+>>>>>>> a7244da (Fixed repository issue & added requirements.txt)
