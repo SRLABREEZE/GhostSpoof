@@ -2,7 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GhostSpoof Dashboard</title>
+    <title>Admin Dashboard - GhostSpoof</title>
+    <script type="module" src="firebase-config.js"></script>
     <style>
         body {
             background-color: #000;
@@ -42,21 +43,54 @@
 </head>
 <body>
     <img src="ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo">
-    <h1>Welcome to Your Dashboard</h1>
+    <h1>Welcome to the Admin Dashboard</h1>
     <div class="container">
         <div class="card">
-            <h2>Your Balance: <span id="balance">$10.00</span></h2>
+            <h2>Your Balance: <span id="balance">Loading...</span></h2>
             <a href="buy_credits.html" class="btn">Buy More Credits</a>
         </div>
         <div class="card">
             <h2>Call History</h2>
-            <p>No recent calls</p>
+            <p id="call-history">Loading...</p>
         </div>
         <div class="card">
             <h2>Account Settings</h2>
             <a href="settings.html" class="btn">Manage Account</a>
         </div>
-        <a href="call.html" class="btn">Start a Call</a>
-    </div>
+        <a href="#" class="btn" onclick="logoutAdmin()">Logout</a>
+    </div><script type="module">
+    import { auth, db, checkAdmin } from "./firebase-config.js";
+    import { getDoc, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+    import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) {
+            window.location.href = "login.html";
+            return;
+        }
+        await checkAdmin(user); // Ensure user is admin
+
+        // Fetch and display balance
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        document.getElementById("balance").innerText = userSnap.exists() ? `$${userSnap.data().credits}` : "$0.00";
+
+        // Fetch and display call history
+        const callsRef = collection(db, "calls");
+        const callSnap = await getDocs(callsRef);
+        let historyHtml = "";
+        callSnap.forEach((doc) => {
+            historyHtml += `<p>${doc.data().caller} → ${doc.data().receiver} at ${doc.data().timestamp}</p>`;
+        });
+        document.getElementById("call-history").innerHTML = historyHtml || "No recent calls.";
+    });
+
+    function logoutAdmin() {
+        signOut(auth).then(() => {
+            window.location.href = "login.html";
+        });
+    }
+</script>
+
 </body>
 </html>
