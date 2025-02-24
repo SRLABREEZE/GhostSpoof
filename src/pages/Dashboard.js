@@ -23,7 +23,7 @@ function Dashboard() {
     };
     fetchUserData();
   }, []);
-
+<button onClick={() => alert("Button clicked!")}>Click Me</button>
   return (
     <div>
       <h2>Dashboard</h2>
