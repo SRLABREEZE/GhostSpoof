@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GhostSpoof - Spoof Calling</title>
     <link rel="stylesheet" href="styles/global.css">
+    <script src="scripts/menu.js" defer></script>
 </head>
 <body>
     <header>
-        <img src="assets/ghostspoof_logo.png" alt="GhostSpoof Logo" class="logo" onclick="goHome()">
-        <nav><a href="menu.html">☰ Menu</a></nav>
+        <a href="index.html">
+            <img src="public/logo.png" alt="GhostSpoof Logo">
+        </a>
+        <nav id="menu"></nav>
     </header>
-    
+
     <h1>👻 Welcome to <span class="highlight">GhostSpoof</span></h1>
     <p class="tagline">
-        ✅ More Minutes for Less Money<br>
-        ✅ Best Value vs SpoofCard & Hushed<br>
+        ✅ More Minutes for Less Money <br>
+        ✅ Best Value vs SpoofCard & Hushed <br>
         ✅ No Contracts, Just Pay-as-You-Go
     </p>
 
     <div class="button-group">
-        <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up & Get 5 Free Minutes</button>
-        <button class="learn-btn" onclick="window.location.href='pricing.html'">View Plans</button>
+        <button class="signup-btn" onclick="window.location.href='public/signup.html'">Sign Up</button>
+        <button class="learn-btn" onclick="window.location.href='public/pricing.html'">View Pricing</button>
     </div>
-
-    <script src="scripts/menu.js"></script>
 </body>
 </html>
