@@ -40,6 +40,51 @@ const Login = () => {
             boxShadow: "0 0 5px #00ffcc",
             borderRadius: "5px",
         },
+        import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();  // Prevent page reload
+
+    try {
+      const response = await fetch("http://localhost:8081/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.message === "Login successful!") {
+        alert("Login Successful!");
+        navigate("/dashboard");  // Redirect
+      } else {
+        alert(data.error || "Login Failed");
+      }
+    } catch (error) {
+      alert("Error logging in. Check console.");
+      console.error("Login Error:", error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input type="email" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
         buttonHover: {
             boxShadow: "0 0 15px #00ffcc",
             transform: "scale(1.05)",
