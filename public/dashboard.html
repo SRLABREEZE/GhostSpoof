@@ -3,40 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - GhostSpoof</title>
+    <title>User Dashboard</title>
     <link rel="stylesheet" href="../styles/global.css">
-    <script src="../styles/dashboard.js" defer></script>
 </head>
 <body>
-    <header>
-        <img src="../assets/logo.png" alt="GhostSpoof Logo" class="logo" onclick="location.href='index.html'">
-        <nav>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="referral.html">Referral</a>
-            <a href="account.html">Account</a>
-            <a href="logout.html">Logout</a>
-        </nav>
-    </header>
-
     <h1>User Dashboard</h1>
-    <div class="dashboard-container">
-        <p>Welcome, <span id="username">Loading...</span>!</p>
-        <p>Remaining Minutes: <span id="minutes">Loading...</span></p>
-
-        <div class="button-group">
-            <a href="purchase.html" class="button">Purchase Minutes</a>
-            <a href="account.html" class="button">Account Settings</a>
-            <a href="logout.html" class="button logout">Logout</a>
-        </div>
-    </div>
+    <p>Remaining Minutes: <span id="minutes">Loading...</span></p>
+    <a href="purchase.html" class="button">Purchase More Minutes</a>
+    <a href="account.html" class="button">Account Settings</a>
+    <a href="logout.html" class="button">Logout</a>
 
     <script>
         fetch('https://ghostspoof-backend.onrender.com/get_user_data.php')
             .then(response => response.json())
             .then(data => {
-                document.getElementById("username").textContent = data.username;
-                document.getElementById("minutes").textContent = data.minutes;
+                document.getElementById("minutes").innerText = data.minutes;
             });
     </script>
 </body>
