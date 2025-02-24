@@ -8,24 +8,32 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px;
+    align-items: center;
 }
 
 img {
-    width: 150px;
+    width: 120px;
 }
 
-nav {
-    background: black;
-    padding: 10px;
+h1 {
+    font-size: 28px;
 }
 
-.button-group button {
+.button-group {
+    margin-top: 20px;
+}
+
+button {
     background-color: cyan;
     color: black;
-    padding: 10px 20px;
     border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
     cursor: pointer;
-    font-weight: bold;
+}
+
+button:hover {
+    background-color: lightblue;
 }
