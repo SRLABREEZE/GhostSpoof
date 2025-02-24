@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - GhostSpoof</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <script src="../scripts/menu.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../public/logo.png" alt="GhostSpoof Logo">
+        </a>
+        <nav id="menu"></nav>
+    </header>
+
+    <h1>Pricing Plans</h1>
+    <table>
+        <tr>
+            <th>Plan</th>
+            <th>Minutes</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Basic</td>
+            <td>5</td>
+            <td>$0.99</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>50</td>
+            <td>$4.99</td>
+        </tr>
+        <tr>
+            <td>Premium</td>
+            <td>200</td>
+            <td>$14.99</td>
+        </tr>
+    </table>
+</body>
+</html>
