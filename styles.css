@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    color: cyan;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+img {
+    width: 120px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+button {
+    background-color: cyan;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightblue;
+}
