@@ -17,3 +17,4 @@ const globalStyles = {
 Object.assign(document.body.style, globalStyles.body);
 
 ReactDOM.render(<App />, document.getElementById("root"));
+<button onClick={() => alert("Button clicked!")}>Click Me</button>
