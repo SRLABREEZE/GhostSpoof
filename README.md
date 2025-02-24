@@ -1,4 +1,4 @@
-# ![GhostSpoof Logo](static/ghostspoof_logo.png)
+# ![GhostSpoof Logo](public/logo.png)
 GhostSpoof - The Ultimate Spoof Calling Service
 ### 🚀 Spoof Calls & Stay Anonymous
 
