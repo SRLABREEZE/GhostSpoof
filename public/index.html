@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GhostSpoof - Spoof Calling</title>
     <link rel="stylesheet" href="styles/global.css">
-    <script src="scripts/menu.js" defer></script>
 </head>
 <body>
+
     <header>
         <a href="index.html">
             <img src="public/logo.png" alt="GhostSpoof Logo">
         </a>
-        <nav id="menu"></nav>
+        <nav>
+            <a href="menu.html">☰ Menu</a>
+        </nav>
     </header>
 
     <h1>👻 Welcome to <span class="highlight">GhostSpoof</span></h1>
@@ -23,8 +25,10 @@
     </p>
 
     <div class="button-group">
-        <button class="signup-btn" onclick="window.location.href='public/signup.html'">Sign Up</button>
-        <button class="learn-btn" onclick="window.location.href='public/pricing.html'">View Pricing</button>
+        <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up & Get 15 Free Minutes</button>
+        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
     </div>
+
+    <script src="scripts/menu.js"></script>
 </body>
 </html>
