@@ -1,0 +1,54 @@
+/* Global styles */
+body {
+    background-color: #000;
+    color: #0ff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 180px; /* Adjusted for mobile & desktop */
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Container */
+.container {
+    margin-top: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    color: #000;
+    background-color: #0ff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #00bcd4;
+}
+
+/* Table */
+.comparison {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+
+.comparison th, .comparison td {
+    border: 1px solid #0ff;
+    padding: 10px;
+}
+
+.highlight {
+    background-color: #0ff;
+    color: #000;
+    font-weight: bold;
+}
