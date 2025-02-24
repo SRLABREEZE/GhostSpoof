@@ -27,8 +27,3 @@ GhostSpoof offers the **best prices** compared to competitors like SpoofCard.
 3️⃣ **Enter the Spoof Caller ID & Target Number**  
 4️⃣ **Press Call & Enjoy!**  
 
-## 🚀 Deployment  
-GhostSpoof is hosted on **Render.com**. To deploy locally:  
-```sh
-pip install -r requirements.txt
-python app.py
