@@ -1,54 +1,39 @@
 /* Global styles */
 body {
-    background-color: #000;
-    color: #0ff;
+    background-color: black;
+    color: cyan;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
-/* Logo */
 .logo {
-    width: 180px; /* Adjusted for mobile & desktop */
-    height: auto;
-    margin: 20px 0;
+    width: 150px;
+    cursor: pointer;
 }
 
-/* Container */
-.container {
-    margin-top: 30px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 18px;
-    color: #000;
-    background-color: #0ff;
+nav a {
+    color: cyan;
+    font-size: 20px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
 }
 
-.btn:hover {
-    background-color: #00bcd4;
+/* Menu */
+.menu {
+    list-style: none;
+    padding: 0;
 }
 
-/* Table */
-.comparison {
-    width: 90%;
-    margin: 30px auto;
-    border-collapse: collapse;
-}
-
-.comparison th, .comparison td {
-    border: 1px solid #0ff;
+.menu li {
     padding: 10px;
+    font-size: 18px;
 }
 
-.highlight {
-    background-color: #0ff;
-    color: #000;
-    font-weight: bold;
+.menu li a {
+    color: cyan;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
 }
