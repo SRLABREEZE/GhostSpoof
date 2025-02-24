@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="../styles/global.css">
+    <title>Dashboard | GhostSpoof</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <script src="scripts/dashboard.js" defer></script>
 </head>
 <body>
-    <h1>User Dashboard</h1>
-    <p>Remaining Minutes: <span id="minutes">Loading...</span></p>
-    <a href="purchase.html" class="button">Purchase More Minutes</a>
-    <a href="account.html" class="button">Account Settings</a>
-    <a href="logout.html" class="button">Logout</a>
 
-    <script>
-        fetch('https://ghostspoof-backend.onrender.com/get_user_data.php')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("minutes").innerText = data.minutes;
-            });
-    </script>
+<h2>User Dashboard</h2>
+
+<p><strong>Remaining Minutes:</strong> <span id="minutes">Loading...</span></p>
+<p><strong>Recent Calls:</strong></p>
+<ul id="call-history">Loading...</ul>
+
+<button onclick="window.location.href='pricing.html'">Buy More Minutes</button>
+
 </body>
 </html>
