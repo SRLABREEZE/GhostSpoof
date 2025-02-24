@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - GhostSpoof</title>
-    <link rel="stylesheet" href="../styles/global.css">
-</head>
-<body>
-    <h1>Create an Account</h1>
-    <form action="https://ghostspoof-backend.onrender.com/process_signup.php" method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit" class="button">Sign Up & Get 5 Free Minutes</button>
-    </form>
-    <p>Already have an account? <a href="login.html">Login here</a></p>
-</body>
-</html>
+<form id="signup-form">
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
+    <button type="submit">Sign Up</button>
+</form>
+
+<script>
+document.getElementById("signup-form").addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch("https://api.ghostspoof.com/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        alert("Signup Successful!");
+        window.location.href = "dashboard.html";  // Redirect to public/dashboard.html
+    } else {
+        alert("Error: " + data.message);
+    }
+});
+</script>
