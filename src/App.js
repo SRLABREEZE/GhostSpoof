@@ -1,17 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import React from "react";
+import { AuthProvider } from "./context/AuthContext";
+import AppRoutes from "./routes";
+import Navbar from "./components/Navbar";
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => {
+    return (
+        <AuthProvider>
+            <Navbar />
+            <AppRoutes />
+        </AuthProvider>
+    );
+};
 
 export default App;
