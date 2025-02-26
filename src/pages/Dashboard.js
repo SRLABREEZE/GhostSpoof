@@ -1,35 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import API from '../api';
+import React, { useEffect } from "react";
 
-function Dashboard() {
-  const [userData, setUserData] = useState(null);
+const Dashboard = () => {
+    useEffect(() => {
+        window.location.href = "https://ghostspoof.com/dashboard";
+    }, []);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          alert('Not authenticated');
-          return;
-        }
-        const response = await API.get('/users/me', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setUserData(response.data);
-      } catch (error) {
-        console.error(error);
-        alert('Failed to load data');
-      }
-    };
-    fetchUserData();
-  }, []);
-<button onClick={() => alert("Button clicked!")}>Click Me</button>
-  return (
-    <div>
-      <h2>Dashboard</h2>
-      {userData ? <p>Welcome, {userData.email}!</p> : <p>Loading...</p>}
-    </div>
-  );
-}
+    return (
+        <div>
+            <h1>Redirecting to Dashboard...</h1>
+        </div>
+    );
+};
 
 export default Dashboard;
